@@ -2,9 +2,9 @@ from subprocess import PIPE, Popen
 from statistics import mean, median
 
 class Controller():
-    def __init__(self, receiver):
-        self.receiver = receiver
-        self.process = Popen(["python", "-u", receiver], stdin=PIPE, stdout=PIPE, bufsize=0, universal_newlines=True)
+    def __init__(self, responder):
+        self.responder = responder
+        self.process = Popen(["python", "-u", responder], stdin=PIPE, stdout=PIPE, bufsize=0, universal_newlines=True)
 
     def read(self):
         return self.process.stdout.readline().strip()
@@ -19,7 +19,7 @@ class Controller():
 
 
 if __name__ == "__main__":
-    c = Controller("run_receiver.py")
+    c = Controller("run_responder.py")
 
     hiReceived = c.write_read("Hi")
     assert hiReceived == "Hi", f"expected Hi but received {hiReceived}"
