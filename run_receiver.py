@@ -2,11 +2,11 @@ from lib.prng import (PRNG)
 
 class Responder():
     def __init__(self):
-        self.generator = PRNG
+        self.generator = PRNG()
 
     def eval_loop(self):
-        command = input()
         while True:
+            command = input()
             match command:
                 case "Hi":
                     print("Hi")
