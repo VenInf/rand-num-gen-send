@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 communicate = "*"
+statistics = "*"
 
 [dev-packages]
 

@@ -1,4 +1,5 @@
 from subprocess import PIPE, Popen
+from statistics import mean, median
 
 class Controller():
     def __init__(self, receiver):
@@ -12,18 +13,32 @@ class Controller():
         self.process.stdin.write(f"{message.strip()}\n")
         self.process.stdin.flush()
 
-    def rep(self, command):
+    def write_read(self, command):
         self.write(command)
-        result = self.read()
-        print(f"[{result}]")
+        return self.read()
 
 
 if __name__ == "__main__":
     c = Controller("run_receiver.py")
 
-    getRands = 100 * ["GetRandom"]
-    commands = ["Hi"] + getRands + ["Shutdown"]
+    hiReceived = c.write_read("Hi")
+    assert hiReceived == "Hi", f"expected Hi but received {hiReceived}"
 
-    for command in commands:
-        c.rep(command)
+    getRandoms = 100 * ["GetRandom"]
+    randReceived = []
+    for cmnd in getRandoms:
+        resp = c.write_read(cmnd)
+        randReceived.append(int(resp))
+
+    c.write("Shutdown")
+
+    print("Sorted received numbers:")
+    print(sorted(randReceived))
+
+    print(f"Median is: {median(randReceived)}")
+    print(f"Average is: {mean(randReceived)}")
+
+
+
+
 

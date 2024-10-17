@@ -1,4 +1,3 @@
-
 class PRNG():
     def __init__( self,
                   upper_bound = 2147483647,
