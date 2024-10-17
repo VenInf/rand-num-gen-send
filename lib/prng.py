@@ -1,4 +1,14 @@
 class PRNG():
+    """
+    Pseudo Random Number Generator,
+    Gives integer up to the upper_bound.
+    Uses X, Y, Z and W as seeds.
+
+    Uses xorshift128, see more here: <https://en.wikipedia.org/wiki/Xorshift>
+
+    Note the upper_bound is used due to the
+    unlimeted percision of integers.
+    """
     def __init__( self,
                   upper_bound = 2147483647,
                   X = 31415926535,
