@@ -1,10 +1,22 @@
 from subprocess import PIPE, Popen
 from statistics import mean, median
 
-class Controller():
+
+class Controller:
+    """
+    Controller, that runs a given python program
+    in a separate process and interacts with it using STDIO
+    """
+
     def __init__(self, responder):
         self.responder = responder
-        self.process = Popen(["python", "-u", responder], stdin=PIPE, stdout=PIPE, bufsize=0, universal_newlines=True)
+        self.process = Popen(
+            ["python", "-u", responder],
+            stdin=PIPE,
+            stdout=PIPE,
+            bufsize=0,
+            universal_newlines=True,
+        )
 
     def read(self):
         return self.process.stdout.readline().strip()
@@ -37,8 +49,3 @@ if __name__ == "__main__":
 
     print(f"Median is: {median(randReceived)}")
     print(f"Average is: {mean(randReceived)}")
-
-
-
-
-

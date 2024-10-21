@@ -1,6 +1,11 @@
-from lib.prng import (PRNG)
+from lib.prng import PRNG
 
-class Responder():
+
+class Responder:
+    """
+    Wrapper for answering given commands
+    """
+
     def __init__(self):
         self.generator = PRNG()
 
@@ -15,7 +20,7 @@ class Responder():
                 case "Shutdown":
                     break
 
+
 if __name__ == "__main__":
     r = Responder()
     r.eval_loop()
-
