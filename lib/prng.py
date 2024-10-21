@@ -1,4 +1,4 @@
-class PRNG():
+class PRNG:
     """
     Pseudo Random Number Generator,
     Gives integer up to the upper_bound.
@@ -9,13 +9,15 @@ class PRNG():
     Note the upper_bound is used due to the
     unlimeted percision of integers.
     """
-    def __init__( self,
-                  upper_bound = 2147483647,
-                  X = 31415926535,
-                  Y = 89793238462,
-                  Z = 64338327950,
-                  W = 28841971693
-                ):
+
+    def __init__(
+        self,
+        upper_bound=2147483647,
+        X=31415926535,
+        Y=89793238462,
+        Z=64338327950,
+        W=28841971693,
+    ):
 
         self.upper_bound = upper_bound
 
@@ -23,7 +25,6 @@ class PRNG():
         self.Y = Y % self.upper_bound
         self.Z = Z % self.upper_bound
         self.W = W % self.upper_bound
-
 
     def xor_shift(self):
         t = self.W
@@ -42,4 +43,3 @@ class PRNG():
     def get_random(self):
         self.xor_shift()
         return self.W
-
