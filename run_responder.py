@@ -1,6 +1,7 @@
 from lib.prng import PRNG
 import logging
 
+
 class Responder:
     """
     Wrapper for answering given commands

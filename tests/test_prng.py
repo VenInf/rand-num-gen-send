@@ -11,7 +11,8 @@ def test_no_collisions():
     for i in range(num_or_rands):
         rands.append(generator.get_random())
 
-    assert (len(set(rands)) == len(rands))
+    assert len(set(rands)) == len(rands)
+
 
 def test_adequate_mean():
     epsilon = 0.01
@@ -24,5 +25,4 @@ def test_adequate_mean():
 
     expected_mean = generator.upper_bound / 2
 
-    assert (abs(mean(rands) - expected_mean) < expected_mean * epsilon)
-
+    assert abs(mean(rands) - expected_mean) < expected_mean * epsilon

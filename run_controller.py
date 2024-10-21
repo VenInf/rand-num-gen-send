@@ -2,6 +2,7 @@ from subprocess import PIPE, Popen
 from statistics import mean, median
 import logging
 
+
 class Controller:
     """
     Controller, that runs a given python program
@@ -26,7 +27,6 @@ class Controller:
         self.logger.setLevel("INFO")
 
         self.logger.info("controller: init")
-
 
     def read(self):
         self.logger.info("controller: read request")
@@ -64,4 +64,3 @@ if __name__ == "__main__":
 
     print(f"Median is: {median(randReceived)}")
     print(f"Average is: {mean(randReceived)}")
-
