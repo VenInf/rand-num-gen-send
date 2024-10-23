@@ -1,6 +1,6 @@
 ## What is this?
 
-This are my answers to the "Next Generation Test Runner" internship questions.
+These are my answers to the "Next Generation Test Runner" internship questions.
 
 ## How do I run them?
 
